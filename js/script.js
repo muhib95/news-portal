@@ -47,8 +47,15 @@ itemFound.innerText=values.length;
 catagoryName.innerText=name;
 const newsItems=document.getElementById('news-items');
 newsItems.innerHTML='';
+values.sort(function (y, x) {
+  return x.total_view - y.total_view;
+});
+
+console.table(values);
+
 values.forEach(value => {
-  console.log(value);
+  
+
   const div=document.createElement('div');
   div.classList.add('card','mb-3');
   div.innerHTML=`
@@ -58,8 +65,8 @@ values.forEach(value => {
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">${value.title}</h5>
+              <p class="card-text">${value.details}</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
@@ -68,5 +75,8 @@ values.forEach(value => {
   `;
   newsItems.appendChild(div);
 });
+
+
+
 }
 loadNewsHead();
