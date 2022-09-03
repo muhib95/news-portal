@@ -127,6 +127,7 @@ const displayInModal=(value)=>{
   const view=document.getElementById('view');
   const rating=document.getElementById('rating');
   const badge=document.getElementById('badge');
+  const newsImage=document.getElementById('news-image');
   modalTitle.innerText=value.title;
   
   details.innerText=value.details.slice(0,300);
@@ -136,6 +137,7 @@ const displayInModal=(value)=>{
   view.innerText=value.total_view ?value.total_view:'Not found';
   rating.innerText=value.rating.number;
   badge.innerText=value.rating.badge;
+  newsImage.src=value.image_url;
 console.log(value);
 }
 
