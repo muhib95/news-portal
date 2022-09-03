@@ -33,10 +33,15 @@ const loadNews=async(value,n)=>{
   // console.log(n);
   const url=`https://openapi.programming-hero.com/api/news/category/0${value}`;
   // console.log(url);
-const res=await fetch(url);
-const data=await res.json();
-displayNews(data.data,n);
 
+try{
+  const res=await fetch(url);
+  const data=await res.json();
+  displayNews(data.data,n);
+}
+catch(error){
+  console.log(error);
+  }
 }
 
 const displayNews=(values,name)=>{
@@ -78,7 +83,7 @@ values.forEach(value => {
    
   </div>
   <div>
-    <h4>View <span>${value.total_view ?value.total_view:'Not Found'}</span></h4>
+    <h4>View: <span>${value.total_view ?value.total_view:'Not Found'}</span></h4>
   </div>
   <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="newsDetails('${value._id}')">Details</button>
   
@@ -112,6 +117,8 @@ const displayInModal=(value)=>{
   const img=document.getElementById('image');
   const puDate=document.getElementById('pub-date');
   const view=document.getElementById('view');
+  const rating=document.getElementById('rating');
+  const badge=document.getElementById('badge');
   modalTitle.innerText=value.title;
   
   details.innerText=value.details.slice(0,300);
@@ -119,6 +126,8 @@ const displayInModal=(value)=>{
   img.src=value.author.img;
   puDate.innerText=value.author.published_date;
   view.innerText=value.total_view ?value.total_view:'Not found';
+  rating.innerText=value.rating.number;
+  badge.innerText=value.rating.badge;
 console.log(value);
 }
 
