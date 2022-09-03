@@ -1,3 +1,4 @@
+// Load news api part....
 const loadNewsHead=async()=>{
 const url=`https://openapi.programming-hero.com/api/news/categories`;
 try{
@@ -10,7 +11,7 @@ console.log(error);
 }
 
 }
-
+// Display news anchor here....
 const displayNewsHead=(values)=>{
 console.log(values);
 const newsHead=document.getElementById('news-head');
@@ -31,10 +32,11 @@ div.classList.add('nav');
 
 
 const loadNews=async(value,n)=>{
+  //spinner start here...
   spinnerDisplay(true);
-  // console.log(n);
+ 
   const url=`https://openapi.programming-hero.com/api/news/category/0${value}`;
-  // console.log(url);
+  
 
 try{
   const res=await fetch(url);
@@ -54,12 +56,13 @@ itemFound.innerText=values.length;
 catagoryName.innerText=name;
 const newsItems=document.getElementById('news-items');
 newsItems.innerHTML='';
+//view disending to assending here....
 values.sort(function (y, x) {
   return x.total_view - y.total_view;
 });
 
-console.table(values);
 
+//news card make here...
 values.forEach(value => {
   console.log(value);
 
@@ -97,14 +100,14 @@ values.forEach(value => {
   `;
   newsItems.appendChild(div);
 });
-
+//spinner end here...
 spinnerDisplay(false);
 
 }
 
 
 const newsDetails=async(value)=>{
-console.log(value);
+
 const url=`https://openapi.programming-hero.com/api/news/${value}`;
   
 
@@ -117,7 +120,7 @@ catch(error){
   console.log(error);
   }
 }
-
+//Modal part here...
 const displayInModal=(value)=>{
   const modalTitle=document.getElementById('exampleModalLabel');
   const details=document.getElementById('details');
@@ -141,6 +144,7 @@ const displayInModal=(value)=>{
 console.log(value);
 }
 
+//spinner function part here...
 const spinnerDisplay=(isSpinner)=>{
   const spinner=document.getElementById('spinner');
 if(isSpinner===true){
