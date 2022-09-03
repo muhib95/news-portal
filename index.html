@@ -34,6 +34,38 @@
   </header>
 
   <main class="container">
+    <!-- Modal Part here... -->
+    <section>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p id="details"></p>
+       <div class="d-flex flex-row">
+        <img id="image" src="" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
+        <h4 id="name">name</h4>
+       </div>
+       <p id="pub-date"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </section>
+
     <section class="border border-2 ms-2 p-2">
       <h4><span id="item-found">0</span> items found for category <span id="catagory-name"></span></h4>
     </section>
@@ -56,7 +88,7 @@
   <div>
     <h4>View <span>1.5M</span></h4>
   </div>
-  <button class="btn btn-primary">Details</button>
+  <button class="btn btn-primary" onclick="newsDetails(value)">Details</button>
 </div> -->
 
 

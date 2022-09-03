@@ -54,7 +54,7 @@ values.sort(function (y, x) {
 console.table(values);
 
 values.forEach(value => {
-  
+  console.log(value);
 
   const div=document.createElement('div');
   div.classList.add('card','mb-3');
@@ -80,7 +80,8 @@ values.forEach(value => {
   <div>
     <h4>View <span>${value.total_view ?value.total_view:'Not Found'}</span></h4>
   </div>
-  <button class="btn btn-primary">Details</button>
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="newsDetails('${value._id}')">Details</button>
+  
 </div>
             </div>
           </div>
@@ -93,4 +94,30 @@ values.forEach(value => {
 
 
 }
+
+
+const newsDetails=async(value)=>{
+console.log(value);
+const url=`https://openapi.programming-hero.com/api/news/${value}`;
+  
+const res=await fetch(url);
+const data=await res.json();
+displayInModal(data.data[0]);
+}
+
+const displayInModal=(value)=>{
+  const modalTitle=document.getElementById('exampleModalLabel');
+  const details=document.getElementById('details');
+  const name=document.getElementById('name');
+  const img=document.getElementById('image');
+  const puDate=document.getElementById('pub-date');
+  modalTitle.innerText=value.title;
+  
+  details.innerText=value.details.slice(0,300);
+  name.innerText=value.author.name;
+  img.src=value.author.img;
+  puDate.innerText=value.author.published_date;
+console.log(value);
+}
+
 loadNewsHead();
