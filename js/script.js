@@ -114,7 +114,7 @@ const displayInModal=(value)=>{
   modalTitle.innerText=value.title;
   
   details.innerText=value.details.slice(0,300);
-  name.innerText=value.author.name;
+  name.innerText=value.author.name ?value.author.name:'Not found';
   img.src=value.author.img;
   puDate.innerText=value.author.published_date;
 console.log(value);
