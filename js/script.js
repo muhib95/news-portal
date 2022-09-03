@@ -111,12 +111,14 @@ const displayInModal=(value)=>{
   const name=document.getElementById('name');
   const img=document.getElementById('image');
   const puDate=document.getElementById('pub-date');
+  const view=document.getElementById('view');
   modalTitle.innerText=value.title;
   
   details.innerText=value.details.slice(0,300);
   name.innerText=value.author.name ?value.author.name:'Not found';
   img.src=value.author.img;
   puDate.innerText=value.author.published_date;
+  view.innerText=value.total_view ?value.total_view:'Not found';
 console.log(value);
 }
 
