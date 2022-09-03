@@ -105,9 +105,15 @@ const newsDetails=async(value)=>{
 console.log(value);
 const url=`https://openapi.programming-hero.com/api/news/${value}`;
   
-const res=await fetch(url);
-const data=await res.json();
-displayInModal(data.data[0]);
+
+try{
+  const res=await fetch(url);
+  const data=await res.json();
+  displayInModal(data.data[0]);
+}
+catch(error){
+  console.log(error);
+  }
 }
 
 const displayInModal=(value)=>{
