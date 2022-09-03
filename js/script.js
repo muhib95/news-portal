@@ -66,8 +66,22 @@ values.forEach(value => {
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">${value.title}</h5>
-              <p class="card-text">${value.details.slice(0,85)}<span>...</span></p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text">${value.details.slice(0,155)}<span>...</span></p>
+             
+              <div class="d-flex justify-content-evenly align-items-center">
+  <div class="d-flex justify-content-evenly p-2">
+    <img src="${value.author.img}" alt="" style="width: 50px;height: 50px;border-radius: 50px;">
+    <div class="ms-2">
+      <h4>${value.author.name ?value.author.name:'Not Found'}</h4>
+      <p>${value.author.published_date ?value.author.published_date:'Not Found'}</p>
+    </div>
+   
+  </div>
+  <div>
+    <h4>View <span>${value.total_view ?value.total_view:'Not Found'}</span></h4>
+  </div>
+  <button class="btn btn-primary">Details</button>
+</div>
             </div>
           </div>
         </div>
