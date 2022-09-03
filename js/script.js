@@ -24,12 +24,14 @@ div.classList.add('nav');
   
   `;
   newsHead.appendChild(div);
-  
+ 
 });
+
 }
 
 
 const loadNews=async(value,n)=>{
+  spinnerDisplay(true);
   // console.log(n);
   const url=`https://openapi.programming-hero.com/api/news/category/0${value}`;
   // console.log(url);
@@ -66,7 +68,7 @@ values.forEach(value => {
   div.innerHTML=`
   <div class="row g-0">
           <div class="col-md-4">
-            <img src="${value.image_url}" class="img-fluid rounded-start" alt="...">
+            <img src="${value.image_url}" class="img-fluid rounded-start p-1" alt="..." style="height: 100%;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -96,7 +98,7 @@ values.forEach(value => {
   newsItems.appendChild(div);
 });
 
-
+spinnerDisplay(false);
 
 }
 
@@ -137,4 +139,15 @@ const displayInModal=(value)=>{
 console.log(value);
 }
 
+const spinnerDisplay=(isSpinner)=>{
+  const spinner=document.getElementById('spinner');
+if(isSpinner===true){
+spinner.classList.remove('d-none');
+
+}
+else{
+  spinner.classList.add('d-none');
+}
+
+}
 loadNewsHead();
