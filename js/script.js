@@ -13,10 +13,10 @@ console.log(error);
 }
 // Display news anchor here....
 const displayNewsHead=(values)=>{
-console.log(values);
+
 const newsHead=document.getElementById('news-head');
 values.forEach(value => {
-  console.log(value);
+
 const div=document.createElement('div');
 div.classList.add('nav');
   div.innerHTML=`
@@ -49,7 +49,7 @@ catch(error){
 }
 
 const displayNews=(values,name)=>{
-console.log(values);
+
 const itemFound=document.getElementById('item-found');
 const catagoryName=document.getElementById('catagory-name');
 itemFound.innerText=values.length;
@@ -64,7 +64,7 @@ values.sort(function (y, x) {
 
 //news card make here...
 values.forEach(value => {
-  console.log(value);
+  
 
   const div=document.createElement('div');
   div.classList.add('card','mb-3');
@@ -141,7 +141,7 @@ const displayInModal=(value)=>{
   rating.innerText=value.rating.number;
   badge.innerText=value.rating.badge;
   newsImage.src=value.image_url;
-console.log(value);
+
 }
 
 //spinner function part here...
